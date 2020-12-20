@@ -39,6 +39,13 @@ dependencies:
   intl: ^0.16.1
   geolocator: ^6.1.13
   fl_chart: ^0.9.3
+  flutter_fortune_wheel: ^0.1.0
+  smooth_star_rating: ^1.0.4
+  share: ^0.6.5+4
+  map_launcher: ^1.0.0
+  url_launcher: ^5.7.10
+  page_transition: ^1.1.7+2
+  charts_flutter:
 
 dev_dependencies:
   flutter_test:

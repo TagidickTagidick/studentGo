@@ -8,6 +8,7 @@ import '../widgets/uni_wave.dart';
 import '../widgets/fade_animation.dart';
 import 'dashboard.dart';
 import 'level.dart';
+import 'example_page.dart';
 
 class Account extends StatefulWidget {
 
@@ -61,7 +62,7 @@ class _AccountState extends State<Account> {
                                     height: kSpacingUnit.w * 2.5,
                                     width: kSpacingUnit.w * 2.5,
                                     decoration: BoxDecoration(
-                                      color: Color(0xff536DFE),
+                                      color: Color(0xff03a9fd),
                                       shape: BoxShape.circle,
                                     ),
                                     child: Center(
@@ -136,7 +137,8 @@ class _AccountState extends State<Account> {
                       0.7,
                       ProfileListItem(
                         icon: LineAwesomeIcons.history,
-                        text: 'Мои скидки',
+                        text: 'Колесо фортуны',
+                        navigateTo: ExamplePage(),
                       ),
                     ),
                     FadeAnimation(

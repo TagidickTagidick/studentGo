@@ -8,7 +8,6 @@ import '../pages/account.dart';
 import '../main.dart';
 
 class UniNavbar extends StatefulWidget {
-  UniNavbar({Key key}) : super(key: navbarKey);
 
   @override
   UniNavbarState createState() => UniNavbarState();
@@ -53,8 +52,8 @@ class UniNavbarState extends State<UniNavbar> {
                         text: 'Главная',
                       ),
                       GButton(
-                        icon: Icons.shopping_cart,
-                        text: 'Магазин',
+                        icon: Icons.card_giftcard,
+                        text: 'Бонусы',
                       ),
                       GButton(
                         icon: Icons.map,

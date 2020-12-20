@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'login_or_signup.dart';
 import '../widgets/uni_wave.dart';
 import '../widgets/fade_animation.dart';
+import 'login.dart';
 
 class Landing extends StatefulWidget {
 
@@ -28,7 +29,7 @@ class _LandingState extends State<Landing> with SingleTickerProviderStateMixin {
         Navigator.push(
             context,
             MaterialPageRoute(
-                builder: (context) => LoginOrSignup()
+                builder: (context) => Login()
             )
         )
     );
@@ -44,7 +45,7 @@ class _LandingState extends State<Landing> with SingleTickerProviderStateMixin {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-        backgroundColor: Color(0xff536DFE),
+        backgroundColor: Color(0xff0a2896),
         body: SingleChildScrollView(
           child: Container(
             height: MediaQuery.of(context).size.height,
@@ -70,7 +71,7 @@ class _LandingState extends State<Landing> with SingleTickerProviderStateMixin {
                       FadeAnimation(
                           0.5,
                           Text(
-                            "Твой вуз",
+                            "StudentGO",
                             style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 30.0,
@@ -81,11 +82,12 @@ class _LandingState extends State<Landing> with SingleTickerProviderStateMixin {
                       FadeAnimation(
                           0.75,
                           Text(
-                            "Твой вуз - в твоёем кармане",
+                            "Лучший вклад - вклад в своё развитие",
                             style: TextStyle(
                                 color: Colors.white,
-                                fontSize: 20.0
+                                fontSize: 20.0,
                             ),
+                            textAlign: TextAlign.center,
                           )
                       ),
                     ],

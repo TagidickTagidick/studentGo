@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'widgets/uni_navbar.dart';
+import 'pages/landing.dart';
 
 void main() => runApp(MyApp());
 
@@ -30,6 +31,6 @@ GlobalKey<NavigatorState> currentNavigatorKey(index) {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) => MaterialApp(
-    home: UniNavbar()
+    home: Landing()
   );
 }

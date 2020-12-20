@@ -76,20 +76,20 @@ class ProductCard extends StatelessWidget {
                   //     color: kPrimaryColor,
                   //   ),
                   // ),
-                  Container(
-                      padding: EdgeInsets.all(getProportionateScreenWidth(8)),
-                      height: 28,
-                      width: 28,
-                      decoration: BoxDecoration(
-                        color: product.isFavourite
-                            ? kPrimaryColor.withOpacity(0.15)
-                            : kSecondaryColor.withOpacity(0.1),
-                        shape: BoxShape.circle,
-                      ),
-                      child: Center(
-                        child: Icon(Icons.check),
-                      )
-                  ),
+                  // Container(
+                  //     padding: EdgeInsets.all(getProportionateScreenWidth(8)),
+                  //     height: 28,
+                  //     width: 28,
+                  //     decoration: BoxDecoration(
+                  //       color: product.isFavourite
+                  //           ? kPrimaryColor.withOpacity(0.15)
+                  //           : kSecondaryColor.withOpacity(0.1),
+                  //       shape: BoxShape.circle,
+                  //     ),
+                  //     child: Center(
+                  //       child: Icon(Icons.check),
+                  //     )
+                  // ),
                 ],
               )
             ],

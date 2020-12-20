@@ -57,17 +57,20 @@ class RecipeBundelCard extends StatelessWidget {
               ),
             ),
             SizedBox(width: defaultSize * 0.25), //5
-            AspectRatio(
-              aspectRatio: 0.71,
-              child: recipeBundle.imageSrc.contains(".svg")
-                  ? SvgPicture.asset(
-                recipeBundle.imageSrc,
-                height: 100,
-                alignment: Alignment.centerLeft,
-              ) : Image.asset(
-                recipeBundle.imageSrc,
-                height: 100,
-                alignment: Alignment.centerLeft,
+            Padding(
+              padding: EdgeInsets.only(right: 5),
+              child: AspectRatio(
+                aspectRatio: 0.71,
+                child: recipeBundle.imageSrc.contains(".svg")
+                    ? SvgPicture.asset(
+                  recipeBundle.imageSrc,
+                  height: 100,
+                  alignment: Alignment.centerLeft,
+                ) : Image.asset(
+                  recipeBundle.imageSrc,
+                  height: 100,
+                  alignment: Alignment.centerLeft,
+                ),
               ),
             )
           ],
@@ -79,9 +82,9 @@ class RecipeBundelCard extends StatelessWidget {
   Row buildInfoRow(double defaultSize, {String iconSrc, text, Color color = Colors.black}) {
     return Row(
       children: <Widget>[
-        SvgPicture.asset(iconSrc),
+        text.contains("null") ? Container() : SvgPicture.asset(iconSrc),
         SizedBox(width: defaultSize), // 10
-        Text(
+        text.contains("null") ? Container() : Text(
           text,
           style: TextStyle(
             color: Colors.white,

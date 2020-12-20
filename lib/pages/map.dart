@@ -49,6 +49,34 @@ class _MapState extends State<Map> {
     )
   ];
 
+  List<GlassPoint> vtb = [
+    GlassPoint(
+        name: "ЯрГУ им. П. Г. Демидова, 1 корпус",
+        lat: 57.633040,
+        lng: 39.887332
+    ),
+    GlassPoint(
+        name: "ЯрГУ им. П. Г. Демидова, 2 корпус",
+        lat: 57.626851,
+        lng: 39.889742
+    ),
+    GlassPoint(
+        name: "ЯрГУ им. П. Г. Демидова, 3 корпус",
+        lat: 57.632871,
+        lng: 39.891279
+    ),
+    GlassPoint(
+        name: "ЯрГУ им. П. Г. Демидова, 4 корпус",
+        lat: 57.575495,
+        lng: 39.857969
+    ),
+    GlassPoint(
+        name: "ЯрГУ им. П. Г. Демидова, 7 корпус",
+        lat: 57.625508,
+        lng: 39.926679
+    )
+  ];
+
   Set<Marker> _markers = {};
 
   bool showSheet = false, showSheetBody = false;
@@ -130,6 +158,18 @@ class _MapState extends State<Map> {
             )
         )
     );
+    for (int i = 0; i < glassPoints.length; i++)
+      _markers.add(
+          Marker(
+              onTap: () => getShowSheet(i),
+              markerId: MarkerId(i.toString()),
+              position: LatLng(glassPoints[i].lat, glassPoints[i].lng),
+              icon: await BitmapDescriptor.fromAssetImage(
+                  ImageConfiguration(size: Size(67.5, 54)),
+                  'images/green_marker.png'
+              )
+          )
+      );
     for (int i = 0; i < glassPoints.length; i++) {
       _markers.add(
           Marker(

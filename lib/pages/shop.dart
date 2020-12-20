@@ -6,6 +6,7 @@ import '../models/Product.dart';
 import '../widgets/uni_wave.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../widgets/product_card.dart';
+import '../widgets/fade_animation.dart';
 
 class Shop extends StatefulWidget {
 
@@ -47,13 +48,14 @@ class _ShopState extends State<Shop> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Container(
-                              width: SizeConfig.screenWidth * 0.6,
-                              decoration: BoxDecoration(
-                                color: kSecondaryColor.withOpacity(0.1),
-                                borderRadius: BorderRadius.circular(15),
-                              ),
-                              child: Center(
+                            FadeAnimation(
+                              0.1,
+                              Container(
+                                width: SizeConfig.screenWidth * 0.6,
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(15),
+                                ),
                                 child: TextField(
                                   onChanged: (value) => print(value),
                                   decoration: InputDecoration(
@@ -66,47 +68,49 @@ class _ShopState extends State<Shop> {
                                       hintText: "Поиск",
                                       prefixIcon: Icon(Icons.search)),
                                 ),
-                              )
+                              ),
                             ),
-                            IconBtnWithCounter(
-                                svgSrc: "images/Cart Icon.svg",
-                                press: () {} //=> Navigator.pushNamed(context, CartScreen.routeName),
-                            ),
-                            IconBtnWithCounter(
-                              svgSrc: "images/Bell.svg",
-                              numOfitem: 3,
-                              press: () {},
-                            ),
+                            FadeAnimation(
+                              0.2,
+                              IconBtnWithCounter(
+                                svgSrc: "images/Bell.svg",
+                                numOfitem: 3,
+                                press: () {},
+                              ),
+                            )
                           ],
                         ),
                       )
                     ),
                     SizedBox(height: getProportionateScreenHeight(20)),
-                    Container(
-                      // height: 90,
-                      width: double.infinity,
-                      margin: EdgeInsets.all(getProportionateScreenWidth(20)),
-                      padding: EdgeInsets.symmetric(
-                        horizontal: getProportionateScreenWidth(20),
-                        vertical: getProportionateScreenWidth(15),
-                      ),
-                      decoration: BoxDecoration(
-                        color: Color(0xFF4A3298),
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      child: Text.rich(
-                        TextSpan(
-                          style: TextStyle(color: Colors.white),
-                          children: [
-                            TextSpan(text: "Новогодний сюрприз\n"),
-                            TextSpan(
-                              text: "Кэшбэк 20%",
-                              style: TextStyle(
-                                fontSize: getProportionateScreenWidth(24),
-                                fontWeight: FontWeight.bold,
+                    FadeAnimation(
+                      0.3,
+                      Container(
+                        // height: 90,
+                        width: double.infinity,
+                        margin: EdgeInsets.all(getProportionateScreenWidth(20)),
+                        padding: EdgeInsets.symmetric(
+                          horizontal: getProportionateScreenWidth(20),
+                          vertical: getProportionateScreenWidth(15),
+                        ),
+                        decoration: BoxDecoration(
+                          color: Color(0xFF4A3298),
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: Text.rich(
+                          TextSpan(
+                            style: TextStyle(color: Colors.white),
+                            children: [
+                              TextSpan(text: "Новогодний сюрприз\n"),
+                              TextSpan(
+                                text: "Кэшбэк 5%",
+                                style: TextStyle(
+                                  fontSize: getProportionateScreenWidth(24),
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ),
                     ),
@@ -117,11 +121,14 @@ class _ShopState extends State<Shop> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: List.generate(
                           categories.length,
-                              (index) => CategoryCard(
-                            icon: categories[index]["icon"],
-                            text: categories[index]["text"],
-                            press: () {},
-                          ),
+                              (index) => FadeAnimation(
+                                0.4,
+                                CategoryCard(
+                                  icon: categories[index]["icon"],
+                                  text: categories[index]["text"],
+                                  press: () {},
+                                ),
+                              )
                         ),
                       ),
                     ),
@@ -130,27 +137,36 @@ class _ShopState extends State<Shop> {
                         Padding(
                           padding:
                           EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
-                          child: SectionTitle(
-                            title: "Специально для тебя",
-                            press: () {},
-                          ),
+                          child: FadeAnimation(
+                            0.5,
+                            SectionTitle(
+                              title: "Специально для тебя",
+                              press: () {},
+                            ),
+                          )
                         ),
                         SizedBox(height: getProportionateScreenWidth(20)),
                         SingleChildScrollView(
                           scrollDirection: Axis.horizontal,
                           child: Row(
                             children: [
-                              SpecialOfferCard(
-                                image: "images/Image Banner 2.png",
-                                category: "Смартфоны",
-                                numOfBrands: 18,
-                                press: () {},
+                              FadeAnimation(
+                                0.6,
+                                SpecialOfferCard(
+                                  image: "images/Image Banner 2.png",
+                                  category: "Смартфоны",
+                                  numOfBrands: 18,
+                                  press: () {},
+                                ),
                               ),
-                              SpecialOfferCard(
-                                image: "images/Image Banner 3.png",
-                                category: "Одежда",
-                                numOfBrands: 24,
-                                press: () {},
+                              FadeAnimation(
+                                0.7,
+                                SpecialOfferCard(
+                                  image: "images/Image Banner 3.png",
+                                  category: "Одежда",
+                                  numOfBrands: 24,
+                                  press: () {},
+                                ),
                               ),
                               SizedBox(width: getProportionateScreenWidth(20)),
                             ],
@@ -164,7 +180,10 @@ class _ShopState extends State<Shop> {
                         Padding(
                           padding:
                           EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
-                          child: SectionTitle(title: "Доступ к сервисам", press: () {}),
+                          child: FadeAnimation(
+                            0.8,
+                              SectionTitle(title: "Доступ к сервисам", press: () {})
+                          ),
                         ),
                         SizedBox(height: getProportionateScreenWidth(20)),
                         SingleChildScrollView(
@@ -175,7 +194,10 @@ class _ShopState extends State<Shop> {
                                 demoProducts.length,
                                     (index) {
                                   if (demoProducts[index].isPopular)
-                                    return ProductCard(product: demoProducts[index]);
+                                    return FadeAnimation(
+                                      1,
+                                        ProductCard(product: demoProducts[index])
+                                    );
 
                                   return SizedBox
                                       .shrink(); // here by default width and height is 0
@@ -251,7 +273,7 @@ class IconBtnWithCounter extends StatelessWidget {
             height: getProportionateScreenWidth(46),
             width: getProportionateScreenWidth(46),
             decoration: BoxDecoration(
-              color: kSecondaryColor.withOpacity(0.1),
+              color: Colors.white,
               shape: BoxShape.circle,
             ),
             child: SvgPicture.asset(svgSrc),

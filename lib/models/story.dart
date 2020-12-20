@@ -1,5 +1,16 @@
+import 'package:flutter/material.dart';
+import '../pages/story.dart';
+
 class Story {
-  final String image;
-  final String name;
-  Story(this.image, this.name);
+  final String url;
+  final MediaType media;
+  final Duration duration;
+  final User1 user;
+
+  const Story({
+    @required this.url,
+    @required this.media,
+    @required this.duration,
+    @required this.user,
+  });
 }
